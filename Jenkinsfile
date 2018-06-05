@@ -29,8 +29,7 @@ pipeline {
         stage("Verify")
         {    steps {
            
-          
-            
+            fileExists 'C:\\Program Files\\Jenkins2\\workspace2\\Test-4'
             
         }
     }
