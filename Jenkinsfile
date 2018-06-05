@@ -97,7 +97,7 @@ pipeline {
             }
     }
 
-  /*  success {
+   success {
         mail(from: "sapb1.chandan@gmail.com",
                 to: "cvsuccess2@gmail.com",
                 subject: "That build passed.",
@@ -109,7 +109,7 @@ pipeline {
                 to: "ceesie@ceesiesdomain.nl",
                 subject: "That build failed!",
                 body: "Nothing to see here")
-   // }
+    }
 
     // The options directive is for configuration that applies to the whole job.
     options {
@@ -120,5 +120,5 @@ pipeline {
         // And we'd really like to be sure that this build doesn't hang forever, so
         // let's time it out after an hour.
         timeout(time: 60, unit: 'MINUTES')
-    }*/
+    }
 }
