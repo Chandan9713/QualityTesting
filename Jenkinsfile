@@ -72,17 +72,17 @@ pipeline {
            // }
            // }
        
-            stage('Results') {
-            steps {
-                cucumber buildStatus: 'UNSTABLE', failedFeaturesNumber: 999, failedScenariosNumber: 999, failedStepsNumber: 3, fileIncludePattern: '**/*.json', skippedStepsNumber: 999
-           }
-            }
+           // stage('Results') {
+           // steps {
+            //    cucumber buildStatus: 'UNSTABLE', failedFeaturesNumber: 999, failedScenariosNumber: 999, failedStepsNumber: 3, fileIncludePattern: '**/*.json', skippedStepsNumber: 999
+          // }
+         //   }
        }
      //   }
      //   }
     
         // Post can be used both on individual stages and for the entire build.
-      /*  post {
+       post {
             
              success {
                 echo 'Test run completed succesfully'
@@ -95,7 +95,7 @@ pipeline {
                 deleteDir()
                 echo "Workspace cleaned"
             }
-    }*/
+    }
 
   /*  success {
         mail(from: "sapb1.chandan@gmail.com",
