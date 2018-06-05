@@ -57,17 +57,17 @@ pipeline {
                     git 'https://github.com/Chandan9713/comProject2.git'
                 }
           }
-       }
-         //   stage('Build') {
-              //  steps {
+      
+           stage('Build') {
+                steps {
                 // Run the maven build
-             /*  if (isUnix()) {
+              if (isUnix()) {
                     sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
                 } else {
                     bat(/"${mvnHome}\bin\mvn" clean test -Dtest=TestRunner/)
-                }*/
-          //  }
-           // }
+                }
+            }
+            }
         
          //   stage('Results') {
             //steps {
