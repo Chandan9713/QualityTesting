@@ -30,7 +30,7 @@ pipeline {
    // }
     tools
     {
-        maven 'apache-mavan-3.5.3'
+        maven 'apache-maven 3.5.3'
     }
     stages {
         stage('Example')
