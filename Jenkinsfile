@@ -30,7 +30,8 @@ pipeline {
    // }
     tools
     {
-        maven  'apache-mavan'
+        maven "MAVEN_HOME"
+            jdk "JAVA_HOME"
     }
     stages {
         stage('Example')
