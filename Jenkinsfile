@@ -28,14 +28,14 @@ pipeline {
    // triggers {
       //  cron('* * * * *')
    // }
-   tools {
+  // tools {
             // Here we have pairs of tool symbols (not all tools have symbols, so if you
             // try to use one from a plugin you've got installed and get an error and the
             // tool isn't listed in the possible values, open a JIRA against that tool!)
             // and installations configured in your Jenkins master's tools configuration.
-            maven "apache-mavan"
+           // maven "apache-mavan"
           
-        }
+     //   }
 
      //   environment {
             // Environment variable identifiers need to be both valid bash variable
@@ -103,7 +103,7 @@ pipeline {
                 to: "ceesie@ceesiesdomain.nl",
                 subject: "That build failed!",
                 body: "Nothing to see here")
-    }
+   // }
 
     // The options directive is for configuration that applies to the whole job.
     options {
