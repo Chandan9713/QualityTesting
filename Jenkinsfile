@@ -37,7 +37,7 @@ pipeline {
           
         }
 
-        environment {
+     //   environment {
             // Environment variable identifiers need to be both valid bash variable
             // identifiers and valid Groovy variable identifiers. If you use an invalid
             // identifier, you'll get an error at validation time.
@@ -46,9 +46,9 @@ pipeline {
             // when https://issues.jenkins-ci.org/browse/JENKINS-41748 is merged and
             // released.
           //  mvnHome = "C:/apache-maven-3.5.3"
-        }
+     //  }
 
-        stages {
+       // stages {
             // At least one stage is required.
          //   stage("Preparation") {
                 // Every stage must have a steps block containing at least one step.
@@ -56,8 +56,8 @@ pipeline {
                     // Get some code from a GitHub repository
                  //   git 'https://git.ceesiesdomain.nl/scm/rsd/test_automation.git'
                // }
-            }
-            stage('Build') {
+         //   }
+         //   stage('Build') {
               //  steps {
                 // Run the maven build
              /*  if (isUnix()) {
@@ -66,14 +66,14 @@ pipeline {
                     bat(/"${mvnHome}\bin\mvn" clean test -Dtest=TestRunner/)
                 }*/
           //  }
-            }
+           // }
         
-            stage('Results') {
+         //   stage('Results') {
             //steps {
               //  cucumber buildStatus: 'UNSTABLE', failedFeaturesNumber: 999, failedScenariosNumber: 999, failedStepsNumber: 3, fileIncludePattern: '**/*.json', skippedStepsNumber: 999
           //  }
-        }
-        }
+     //   }
+     //   }
     
         // Post can be used both on individual stages and for the entire build.
       /*  post {
