@@ -45,7 +45,7 @@ pipeline {
             // other env vars in environment variable values, but that will be possible
             // when https://issues.jenkins-ci.org/browse/JENKINS-41748 is merged and
             // released.
-           mvnHome = 'apache-maven'
+           mvnHome = 'apache-mavan'
        }
 
        stages {
@@ -64,7 +64,7 @@ pipeline {
             //  if (isUnix()) {
                //     sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
               //  } else {
-                    bat('${mvnHome}\bin\mvn' clean test -Dtest=TestRunner/)
+                    bat('${mvnHome}/bin/mvn' clean test -Dtest=TestRunner/)
                // }
             }
             }
