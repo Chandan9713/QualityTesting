@@ -64,7 +64,7 @@ pipeline {
             //  if (isUnix()) {
                //     sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
               //  } else {
-                    bat(/"${mvnHome}\bin\mvn"  mvn clean /)
+                    bat(/"${mvnHome}\bin\mvn"   clean maven -Dtest=TestRunner\)
                // }
             }
             }
