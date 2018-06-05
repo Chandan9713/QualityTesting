@@ -54,7 +54,7 @@ pipeline {
                 // Every stage must have a steps block containing at least one step.
                steps {
                     // Get some code from a GitHub repository
-                    git 'https://git.ceesiesdomain.nl/scm/rsd/test_automation.git'
+                    git 'https://github.com/Chandan9713/comProject2.git'
                 }
           }
        }
