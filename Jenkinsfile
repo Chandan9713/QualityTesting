@@ -3,7 +3,7 @@ node {
     
     // Make the output directory.
 
-
+    mkdir "e:/output" 
     // Write an useful file, which is needed to be archived.
     writeFile file: "output/usefulfile.txt", text: "This file is useful, need to archive it."
 
