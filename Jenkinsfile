@@ -30,7 +30,7 @@ pipeline {
    // }
     tools
     {
-        maven "C:/apache-mavan"
+        maven  'C:/apache-mavan'
     }
     stages {
         stage('Example')
