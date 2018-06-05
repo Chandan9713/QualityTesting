@@ -24,7 +24,7 @@
 }*/
 
 pipeline {
-    agent any
+ //   agent any
    // triggers {
       //  cron('* * * * *')
    // }
@@ -48,15 +48,16 @@ pipeline {
           //  mvnHome = "C:/apache-maven-3.5.3"
      //  }
 
-       // stages {
+       stages {
             // At least one stage is required.
-         //   stage("Preparation") {
+            stage("Preparation") {
                 // Every stage must have a steps block containing at least one step.
-               // steps {
+               steps {
                     // Get some code from a GitHub repository
-                 //   git 'https://git.ceesiesdomain.nl/scm/rsd/test_automation.git'
-               // }
-         //   }
+                    git 'https://git.ceesiesdomain.nl/scm/rsd/test_automation.git'
+                }
+          }
+       }
          //   stage('Build') {
               //  steps {
                 // Run the maven build
