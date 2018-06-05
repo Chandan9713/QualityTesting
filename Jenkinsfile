@@ -28,16 +28,16 @@ pipeline {
    // triggers {
       //  cron('* * * * *')
    // }
-  // tools {
+   tools {
             // Here we have pairs of tool symbols (not all tools have symbols, so if you
             // try to use one from a plugin you've got installed and get an error and the
             // tool isn't listed in the possible values, open a JIRA against that tool!)
             // and installations configured in your Jenkins master's tools configuration.
-           // maven "apache-mavan"
+            maven "apache-mavan"
           
-     //   }
+        }
 
-     //   environment {
+        environment {
             // Environment variable identifiers need to be both valid bash variable
             // identifiers and valid Groovy variable identifiers. If you use an invalid
             // identifier, you'll get an error at validation time.
@@ -45,8 +45,8 @@ pipeline {
             // other env vars in environment variable values, but that will be possible
             // when https://issues.jenkins-ci.org/browse/JENKINS-41748 is merged and
             // released.
-          //  mvnHome = "C:/apache-maven-3.5.3"
-     //  }
+           mvnHome = "C:/apache-maven-3.5.3"
+       }
 
        stages {
             // At least one stage is required.
