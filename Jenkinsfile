@@ -45,33 +45,33 @@ pipeline {
             // other env vars in environment variable values, but that will be possible
             // when https://issues.jenkins-ci.org/browse/JENKINS-41748 is merged and
             // released.
-            mvnHome = "C:/apache-maven-3.5.3"
+          //  mvnHome = "C:/apache-maven-3.5.3"
         }
 
         stages {
             // At least one stage is required.
-            stage("Preparation") {
+         //   stage("Preparation") {
                 // Every stage must have a steps block containing at least one step.
-                steps {
+               // steps {
                     // Get some code from a GitHub repository
-                    git 'https://git.ceesiesdomain.nl/scm/rsd/test_automation.git'
-                }
+                 //   git 'https://git.ceesiesdomain.nl/scm/rsd/test_automation.git'
+               // }
             }
             stage('Build') {
-                steps {
+              //  steps {
                 // Run the maven build
              /*  if (isUnix()) {
                     sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
                 } else {
                     bat(/"${mvnHome}\bin\mvn" clean test -Dtest=TestRunner/)
                 }*/
-            }
+          //  }
             }
         
             stage('Results') {
-            steps {
-                cucumber buildStatus: 'UNSTABLE', failedFeaturesNumber: 999, failedScenariosNumber: 999, failedStepsNumber: 3, fileIncludePattern: '**/*.json', skippedStepsNumber: 999
-            }
+            //steps {
+              //  cucumber buildStatus: 'UNSTABLE', failedFeaturesNumber: 999, failedScenariosNumber: 999, failedStepsNumber: 3, fileIncludePattern: '**/*.json', skippedStepsNumber: 999
+          //  }
         }
         }
     
