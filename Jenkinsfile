@@ -95,7 +95,7 @@ pipeline {
                 deleteDir()
                 echo "Workspace cleaned"
             }
-    }
+    
 
    success {
         mail(from: "sapb1.chandan@gmail.com",
@@ -121,4 +121,5 @@ pipeline {
         // let's time it out after an hour.
         timeout(time: 60, unit: 'MINUTES')
     }
+}
 }
