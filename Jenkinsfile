@@ -45,7 +45,7 @@ pipeline {
             // other env vars in environment variable values, but that will be possible
             // when https://issues.jenkins-ci.org/browse/JENKINS-41748 is merged and
             // released.
-           mvnHome = "C:/apache-maven-3.5.3"
+           mvnHome = 'C:\apache-maven'
        }
 
        stages {
