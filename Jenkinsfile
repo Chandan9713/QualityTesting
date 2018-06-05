@@ -76,8 +76,9 @@ pipeline {
         }
     
         // Post can be used both on individual stages and for the entire build.
-        post {
-            success {
+      /*  post {
+            
+             success {
                 echo 'Test run completed succesfully'
             }
             failure {
@@ -88,9 +89,9 @@ pipeline {
                 deleteDir()
                 echo "Workspace cleaned"
             }
-    }
+    }*/
 
-    success {
+  /*  success {
         mail(from: "sapb1.chandan@gmail.com",
                 to: "cvsuccess2@gmail.com",
                 subject: "That build passed.",
@@ -113,5 +114,5 @@ pipeline {
         // And we'd really like to be sure that this build doesn't hang forever, so
         // let's time it out after an hour.
         timeout(time: 60, unit: 'MINUTES')
-    }
+    }*/
 }
