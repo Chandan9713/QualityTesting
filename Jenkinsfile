@@ -1,4 +1,4 @@
-node {
+/*node {
     
     
     stage "Create build output"
@@ -18,6 +18,25 @@ node {
 
     
     // Archive the build output artifacts.
-    archiveArtifacts artifacts: 'output/*.txt', excludes: 'output/*.md'
+    archiveArtifacts artifacts: 'output/*.txt', excludes: 'output/*.md'  
+    
    
+}*/
+
+pipeline {
+    agent any
+    stages {
+        stage("Example")
+        {
+            step {
+            echo 'hello world'
+        }
+    }
+}
+post {
+    always
+    {
+        echo 'I will always say Hello world again;
+    }
+}
 }
