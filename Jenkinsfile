@@ -28,14 +28,12 @@ pipeline {
     stages {
         stage("Verify")
         {    steps {
-            if (fileExists 'C:\\Program Files\\Jenkins\\workspace\\test-41')
+             fileExists 'C:\\Program Files\\Jenkins\\workspace\\test-41'
             {
                 echo 'file doesnot there'
             }
-            else
-            {
-                echo 'file is available'
-            }
+           
+            
             
         }
     }
