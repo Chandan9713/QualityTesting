@@ -60,26 +60,28 @@ pipeline {
             stage('Build') {
                 steps {
                 // Run the maven build
-                if (isUnix()) {
+             /*  if (isUnix()) {
                     sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
                 } else {
                     bat(/"${mvnHome}\bin\mvn" clean test -Dtest=TestRunner/)
-                }
+                }*/
             }
-        }
+            }
+        
             stage('Results') {
             steps {
                 cucumber buildStatus: 'UNSTABLE', failedFeaturesNumber: 999, failedScenariosNumber: 999, failedStepsNumber: 3, fileIncludePattern: '**/*.json', skippedStepsNumber: 999
             }
         }
-    }
+        }
+    
         // Post can be used both on individual stages and for the entire build.
         post {
             success {
-                echo "Test run completed succesfully."
+                echo 'Test run completed succesfully'
             }
             failure {
-                echo "Test run failed."
+                echo 'Test run failed'
             }
             always {
         // Let's wipe out the workspace before we finish!
