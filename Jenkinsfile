@@ -58,8 +58,8 @@ pipeline {
                 }
           }
       
-           stage('Build') {
-                steps {
+        //   stage('Build') {
+              //  steps {
                 // Run the maven build
             //  if (isUnix()) {
                //     sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
@@ -69,8 +69,8 @@ pipeline {
                   //  bat  "cd c:/Program Files/Jenkins/workspace/test-4"
                     //bat "mvn clean test C:/Program Files/Jenkins/workspace/test-4/pom.xml -Dtest=TestRunner"
                // }
-            }
-            }
+           // }
+           // }
        
             stage('Results') {
             steps {
