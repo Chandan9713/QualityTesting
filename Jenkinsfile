@@ -65,7 +65,7 @@ pipeline {
                //     sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
               //  } else {
                   // bat(/"${mvnHome}\bin\mvn" clean test -Dtest=TestRunner/)
-                    bat 'mvn clean test -f C:/Program Files/Jenkins/workspace/test-4/pom.xml -Dtest=TestRunner'
+                    bat 'mvn clean test -f C:\Program Files\Jenkins\workspace\test-4\pom.xml -Dtest=TestRunner'
                // }
             }
             }
