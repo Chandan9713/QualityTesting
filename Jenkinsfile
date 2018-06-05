@@ -1,5 +1,8 @@
 node {
+    
+    
     stage "Create build output"
+    {
     
     // Make the output directory.
 
@@ -9,9 +12,12 @@ node {
 
     // Write an useless file, which is not needed to be archived.
     writeFile file: "output/uselessfile.md", text: "This file is useless, no need to archive it."
+    }
 
     stage "Archive build output"
+    {
     
     // Archive the build output artifacts.
     archiveArtifacts artifacts: 'output/*.txt', excludes: 'output/*.md'
+    }
 }
