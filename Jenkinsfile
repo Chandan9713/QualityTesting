@@ -26,16 +26,21 @@
 pipeline {
     agent any
     stages {
-        stage("Example")
+        stage("Verify")
         {    steps {
-            echo 'hello world'
+            fileExists 'C:\\Program Files\\Jenkins\\workspace\\test-4'
+            
         }
     }
 }
 post {
-    always
+    success
     {
-        echo 'I will always say Hello world again'
+        echo 'file exist in workspace'
+    }
+    failure
+    {
+        echo 'file doesnt exist in workspace'
     }
 }
 }
