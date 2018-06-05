@@ -28,11 +28,8 @@ pipeline {
     stages {
         stage("Verify")
         {    steps {
-             fileExists 'C:\\Program Files\\Jenkins\\workspace\\test-41'
-            {
-                echo 'file doesnot there'
-            }
-           
+             fileExists 'C:\\Program Files\\Jenkins\\workspace\\dsfsdfsf1'
+          
             
             
         }
