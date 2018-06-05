@@ -25,23 +25,17 @@
 
 pipeline {
     agent any
+    triggers {
+        cron(' H */4 * *1-5')
+    }
     stages {
-        stage("Verify")
+        stage('Example')
         {    steps {
+           echo 'Hello world'
            
-            fileExists 'C:\\Program Files\\Jenkins2\\workspace2\\Test-4'
             
         }
     }
 }
-post {
-    success
-    {
-        echo 'file exist in workspace'
-    }
-    failure
-    {
-        echo 'file doesnt exist in workspace'
-    }
-}
+
 }
