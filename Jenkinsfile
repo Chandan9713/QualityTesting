@@ -64,8 +64,10 @@ pipeline {
             //  if (isUnix()) {
                //     sh "'${mvnHome}/bin/mvn' clean test -Dtest=TestRunner"
               //  } else {
-                  bat(/"${mvnHome}\bin\mvn" clean test C:\\Program Files\Jenkin\workspace\test-4\pom.xml -Dtest=TestRunner/)
-                    //bat 'mvn clean test C:\Program Files\Jenkin\workspace\test-4\pom.xml -Dtest=TestRunner'
+                    
+                 // bat(/"${mvnHome}\bin\mvn" clean compile -Dtest=TestRunner/)
+                    bat 'cd C:\Program Files\Jenkins\workspace\test-4' 
+                    bat 'mvn clean test C:\Program Files\Jenkins\workspace\test-4\pom.xml -Dtest=TestRunner'
                // }
             }
             }
