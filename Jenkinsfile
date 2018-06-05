@@ -25,13 +25,18 @@
 
 pipeline {
     agent any
-    triggers {
-        cron('* * * * *')
+   // triggers {
+      //  cron('* * * * *')
+   // }
+    tools
+    {
+        maven 'apache-mavan-3.5.3'
     }
     stages {
         stage('Example')
-        {    steps {
-           echo 'Hello world'
+        {    steps 
+         {
+           bat 'mvn --version'
            
             
         }
