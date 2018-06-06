@@ -1,7 +1,8 @@
 #!groovy
 properties([[$class: 'jenkins.model.BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '5', artifactNumToKeepStr: '5']]])
 
-node('node_name'){
+node{
+    agent any
 
     def err = null
     currentBuild.result = "SUCCESS"
