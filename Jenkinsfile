@@ -47,15 +47,15 @@ node {
 }
 }
 // Pulls the android flavor out of the branch name the branch is prepended with /QA_
-@NonCPS
+/*@NonCPS
 def flavor(branchName) {
   def matcher = (env.BRANCH_NAME =~ /QA_([a-z_]+)/)
   assert matcher.matches()
   matcher[0][1]
-    
+
    
 
-}
+}  */  
 
 /*
 pipeline {
