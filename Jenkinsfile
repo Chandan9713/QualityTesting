@@ -1,6 +1,9 @@
 node {
     
-    
+    agent any
+    environment {
+        def flavor = flavor(env.BRANCH_NAME)
+    }
   /*  stage "Create build output"
     
      // Make the output directory.
@@ -32,7 +35,7 @@ node {
   //branch name from Jenkins environment variables
   echo "My branch is: ${env.BRANCH_NAME}"
 
-  def flavor = flavor(env.BRANCH_NAME)
+ // def flavor = flavor(env.BRANCH_NAME)
   echo "Building flavor ${flavor}"
 
   //build your gradle flavor, passes the current build number as a parameter to gradle
