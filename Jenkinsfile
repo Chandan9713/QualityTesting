@@ -84,7 +84,7 @@ pipeline {
         // Post can be used both on individual stages and for the entire build.
        post {
             
-         /*    success {
+             success {
                 echo 'Test run completed succesfully'
             }
             failure {
@@ -94,7 +94,7 @@ pipeline {
         // Let's wipe out the workspace before we finish!
                 deleteDir()
                 echo "Workspace cleaned"
-            }*/
+            }
     
 
    success {
