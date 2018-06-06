@@ -110,9 +110,9 @@ pipeline {
                 subject: "That build failed!",
                 body: "Nothing to see here")
     }
-       }
+      
     // The options directive is for configuration that applies to the whole job.
- /*   options {
+    options {
         // For example, we'd like to make sure we only keep 10 builds at a time, so
         // we don't fill up our storage!
         buildDiscarder(logRotator(numToKeepStr:'10'))
@@ -120,6 +120,6 @@ pipeline {
         // And we'd really like to be sure that this build doesn't hang forever, so
         // let's time it out after an hour.
         timeout(time: 60, unit: 'MINUTES')
-    }*/
-
+    }
+ }
 }
