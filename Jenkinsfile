@@ -7,7 +7,7 @@ node('master') {def err = null
             stage "${role_name}"
                 deleteDir()
                 checkout scm
-                bat 'introduce error here'
+                echo "introduce error here"
         }
     }
     catch (error){
