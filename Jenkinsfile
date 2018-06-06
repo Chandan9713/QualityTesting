@@ -13,7 +13,7 @@ node('master') {def err = null
     catch (error){
         err = error
         currentBuild.result = "FAILURE"
-       // mattermostSend color: 'danger', message: 'Message from Jenkins Pipeline', text: \"${env.JOB_NAME}: ${env.BUILD_URL} - build failed with ${err}!\"
+        mattermostSend color: 'danger', message: 'Message from Jenkins Pipeline', text: "${env.JOB_NAME}: ${env.BUILD_URL} - build failed with ${err}!\"
     }
     finally {
        if (err){
