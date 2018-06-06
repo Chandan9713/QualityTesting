@@ -82,7 +82,7 @@ pipeline {
      //   }
     
         // Post can be used both on individual stages and for the entire build.
-       post {
+     //  post {
             
          /*    success {
                 echo 'Test run completed succesfully'
