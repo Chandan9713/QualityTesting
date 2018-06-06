@@ -25,6 +25,7 @@ node {
   checkout scm
   bat 'git submodule update --init'  
     }
+}
  /* stage ('Stage Build')
     {
   //branch name from Jenkins environment variables
