@@ -155,14 +155,14 @@ pipeline {
                 to: "cvsuccess2@gmail.com",
                 subject: "That build passed.",
                 body: "Nothing to see here")
-    }
+   // }
 
     failure {
         mail(from: "cvsuccess2@gmail.com",
                 to: "cvsuccess2@gmail.com",
                 subject: "That build failed!",
                 body: "Nothing to see here")
-    }
+   // }
        }*/
       
     // The options directive is for configuration that applies to the whole job.
