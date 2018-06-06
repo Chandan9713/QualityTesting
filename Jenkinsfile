@@ -25,8 +25,9 @@ node {
   checkout scm
   bat 'git submodule update --init'  
     }
-}
- /* stage ('Stage Build')
+
+
+ stage ('Stage Build')
     {
   //branch name from Jenkins environment variables
   echo "My branch is: ${env.BRANCH_NAME}"
@@ -37,7 +38,8 @@ node {
   //build your gradle flavor, passes the current build number as a parameter to gradle
   bat "./gradlew clean assemble${flavor}Debug -PBUILD_NUMBER=${env.BUILD_NUMBER}"
     }
-  stage ('Stage Archive')
+}
+ /* stage ('Stage Archive')
     {
   //tell Jenkins to archive the apks
   archiveArtifacts artifacts: 'app/build/outputs/apk/*.apk', fingerprint: true
