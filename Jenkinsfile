@@ -1,24 +1,15 @@
-node('master') {def err = null
-    currentBuild.result = "SUCCESS"
-    role_name = "deploy"
-
-    try {
-        timeout(60){
-            stage "${role_name}"
-                deleteDir()
-                checkout scm
-                echo "introduce error here"
+node 
+{
+    stage('Example')
+    {
+        if (env.BRANCH_NAME=='master')
+        {
+            echo 'I only execute on the master branch'
         }
-    }
-    catch (error){
-        err = error
-        currentBuild.result = "FAILURE"
-       // mattermostSend color: 'danger', message: 'Message from Jenkins Pipeline', text:   "/${env.JOB_NAME}: ${env.BUILD_URL} - build failed with ${err}!\
-    }
-    finally {
-       if (err){
-          throw err
-       }
+        else
+        {
+            echo 'I elsewhere execute'
+        }
     }
 }
 
