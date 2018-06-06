@@ -1,10 +1,9 @@
-/*node {
+node {
     
     
-    stage "Create build output"
+  /*  stage "Create build output"
     
-    
-    // Make the output directory.
+     // Make the output directory.
 
 
     // Write an useful file, which is needed to be archived.
@@ -18,11 +17,42 @@
 
     
     // Archive the build output artifacts.
-    archiveArtifacts artifacts: 'output/*.txt', excludes: 'output/*.md'  
+    archiveArtifacts artifacts: 'output/*.txt', excludes: 'output/*.md'  */
+     stage 'Stage Checkout'
+
+  // Checkout code from repository and update any submodules
+  checkout scm
+  bat 'git submodule update --init'  
+
+  stage 'Stage Build'
+
+  //branch name from Jenkins environment variables
+  echo "My branch is: ${env.BRANCH_NAME}"
+
+  def flavor = flavor(env.BRANCH_NAME)
+  echo "Building flavor ${flavor}"
+
+  //build your gradle flavor, passes the current build number as a parameter to gradle
+  sh "./gradlew clean assemble${flavor}Debug -PBUILD_NUMBER=${env.BUILD_NUMBER}"
+
+  stage 'Stage Archive'
+  //tell Jenkins to archive the apks
+  archiveArtifacts artifacts: 'app/build/outputs/apk/*.apk', fingerprint: true
+
+  stage 'Stage Upload To Fabric'
+  sh "./gradlew crashlyticsUploadDistribution${flavor}Debug  -PBUILD_NUMBER=${env.BUILD_NUMBER}"
+}
+
+// Pulls the android flavor out of the branch name the branch is prepended with /QA_
+@NonCPS
+def flavor(branchName) {
+  def matcher = (env.BRANCH_NAME =~ /QA_([a-z_]+)/)
+  assert matcher.matches()
+  matcher[0][1]
     
    
-}*/
-
+}
+/*
 pipeline {
    agent any
    // triggers {
@@ -82,7 +112,7 @@ pipeline {
      //   }
     
         // Post can be used both on individual stages and for the entire build.
-       post {
+    /*   post {
             
              success {
                 echo 'Test run completed succesfully'
@@ -98,6 +128,13 @@ pipeline {
                 subject: "That build failed!",
                 body: "Nothing to see here")
             }
+           unstable {
+            echo 'This will run only if the run was marked as unstable'
+        }
+        changed {
+            echo 'This will run only if the state of the Pipeline has changed'
+            echo 'For example, if the Pipeline was previously failing but is now successful'
+        }
             always {
         // Let's wipe out the workspace before we finish!
                 deleteDir()
@@ -121,7 +158,7 @@ pipeline {
        }
       
     // The options directive is for configuration that applies to the whole job.
-    options {
+   /* options {
         // For example, we'd like to make sure we only keep 10 builds at a time, so
         // we don't fill up our storage!
         buildDiscarder(logRotator(numToKeepStr:'10'))
@@ -131,4 +168,4 @@ pipeline {
         timeout(time: 60, unit: 'MINUTES')
     }
  
-}
+}*/
