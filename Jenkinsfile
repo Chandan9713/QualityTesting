@@ -1,9 +1,4 @@
-#!groovy
-properties([[$class: 'jenkins.model.BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '5', artifactNumToKeepStr: '5']]])
-
-node{
-    agent any
-    def err = null
+node('node_name') {def err = null
     currentBuild.result = "SUCCESS"
     role_name = "deploy"
 
@@ -12,21 +7,20 @@ node{
             stage "${role_name}"
                 deleteDir()
                 checkout scm
-                bat 'introduce error here'
+                sh 'introduce error here'
         }
     }
     catch (error){
         err = error
         currentBuild.result = "FAILURE"
-        load "ci/curlBuildFailed.groovy"
+        mattermostSend color: 'danger', message: 'Message from Jenkins Pipeline', text: \"${env.JOB_NAME}: ${env.BUILD_URL} - build failed with ${err}!\"
     }
     finally {
-        if (err){
-            throw err
-        }
+       if (err){
+          throw err
+       }
     }
 }
-
 
 
 /*
