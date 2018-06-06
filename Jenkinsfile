@@ -98,15 +98,15 @@ pipeline {
     
 
    success {
-        mail(from: "sapb1.chandan@gmail.com",
+        mail(from: "cvsuccess2@gmail.com",
                 to: "cvsuccess2@gmail.com",
                 subject: "That build passed.",
                 body: "Nothing to see here")
     }
 
     failure {
-        mail(from: "jenkins@ceesiesdomain.nl",
-                to: "ceesie@ceesiesdomain.nl",
+        mail(from: "cvsuccess2@gmail.com",
+                to: "cvsuccess2@gmail.com",
                 subject: "That build failed!",
                 body: "Nothing to see here")
     }
