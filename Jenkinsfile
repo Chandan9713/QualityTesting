@@ -1,67 +1,38 @@
-node {
-    
-    agent any
-    environment {
-        def flavor
+pipeline {
+  agent any
+
+  // This defines job parameters that are populated before job is run or default is used
+  parameters {
+    booleanParam(defaultValue: true, description: '', name: 'flag')
+    string(defaultValue: '', description: '', name: 'SOME_STRING')
+  }
+
+  // Triggers define how the job is triggered.
+  // Jobs may still be triggered manually or by webhook as well here.
+  triggers {
+    cron('@daily')
+  }
+
+  // Options covers all other job properties or wrapper functions that apply to entire Pipeline.
+  options {
+    buildDiscarder(logRotator(numToKeepStr:'1'))
+    disableConcurrentBuilds()
+    skipDefaultCheckout(true)
+    timeout(time: 5, unit: 'MINUTES')
+    timestamps()
+  }
+
+  stages {
+    stage("foo") {
+      steps {
+        echo "hello"
+        bat "test -f Jenkinsfile"
+      }
     }
-  /*  stage "Create build output"
-    
-     // Make the output directory.
-
-
-    // Write an useful file, which is needed to be archived.
-    writeFile file: "output/usefulfile.txt", text: "This file is useful, need to archive it."
-
-    // Write an useless file, which is not needed to be archived.
-    writeFile file: "output/uselessfile.md", text: "This file is useless, no need to archive it."
-
-
-    stage "Archive build output"
-
-    
-    // Archive the build output artifacts.
-    archiveArtifacts artifacts: 'output/*.txt', excludes: 'output/*.md'  */
-     stage ('Stage Checkout')
-    {
-
-  // Checkout code from repository and update any submodules
-  checkout scm
-  bat 'git submodule update --init'  
-    }
-
-
- stage ('Stage Build')
-    {
-  //branch name from Jenkins environment variables
-  echo "My branch is: ${env.BRANCH_NAME}"
-
-   flavor = flavor(env.BRANCH_NAME)
-  echo "Building flavor ${flavor}"
-
-  //build your gradle flavor, passes the current build number as a parameter to gradle
-  bat "./gradlew clean assemble${flavor}Debug -PBUILD_NUMBER=${env.BUILD_NUMBER}"
-    }
+  }
 }
- /* stage ('Stage Archive')
-    {
-  //tell Jenkins to archive the apks
-  archiveArtifacts artifacts: 'app/build/outputs/apk/*.apk', fingerprint: true
-    }
-  stage ('Stage Upload To Fabric')
-    {
-  bat "./gradlew crashlyticsUploadDistribution${flavor}Debug  -PBUILD_NUMBER=${env.BUILD_NUMBER}"
-}
-}
-// Pulls the android flavor out of the branch name the branch is prepended with /QA_
-/*@NonCPS
-def flavor(branchName) {
-  def matcher = (env.BRANCH_NAME =~ /QA_([a-z_]+)/)
-  assert matcher.matches()
-  matcher[0][1]
 
-   
 
-}  */  
 
 /*
 pipeline {
