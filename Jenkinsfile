@@ -82,7 +82,7 @@ pipeline {
      //   }
     
         // Post can be used both on individual stages and for the entire build.
-     //  post {
+       post {
             
          /*    success {
                 echo 'Test run completed succesfully'
@@ -110,7 +110,7 @@ pipeline {
                 subject: "That build failed!",
                 body: "Nothing to see here")
     }
-
+       }
     // The options directive is for configuration that applies to the whole job.
  /*   options {
         // For example, we'd like to make sure we only keep 10 builds at a time, so
