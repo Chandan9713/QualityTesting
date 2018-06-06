@@ -26,7 +26,7 @@ pipeline {
     stage("foo") {
       steps {
         echo "hello"
-        bat 'test -f Jenkinsfile'
+        //bat 'test -f Jenkinsfile'
       }
     }
   }
