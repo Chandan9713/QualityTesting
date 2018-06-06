@@ -1,4 +1,4 @@
-node('node_name') {def err = null
+node('master') {def err = null
     currentBuild.result = "SUCCESS"
     role_name = "deploy"
 
