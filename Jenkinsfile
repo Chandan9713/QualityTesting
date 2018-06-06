@@ -3,7 +3,6 @@ properties([[$class: 'jenkins.model.BuildDiscarderProperty', strategy: [$class: 
 
 node{
     agent any
-
     def err = null
     currentBuild.result = "SUCCESS"
     role_name = "deploy"
