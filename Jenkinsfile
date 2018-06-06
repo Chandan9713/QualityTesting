@@ -57,7 +57,7 @@ pipeline {
                     git 'https://github.com/Chandan9713/comProject2.git'
                 }
           }
-      
+       }
         //   stage('Build') {
               //  steps {
                 // Run the maven build
