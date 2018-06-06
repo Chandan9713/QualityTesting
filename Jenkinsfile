@@ -86,9 +86,17 @@ pipeline {
             
              success {
                 echo 'Test run completed succesfully'
+                 mail(from: "cvsuccess2@gmail.com",
+                to: "cvsuccess2@gmail.com",
+                subject: "That build passed.",
+                body: "Nothing to see here")
             }
             failure {
                 echo 'Test run failed'
+                  mail(from: "cvsuccess2@gmail.com",
+                to: "cvsuccess2@gmail.com",
+                subject: "That build failed!",
+                body: "Nothing to see here")
             }
             always {
         // Let's wipe out the workspace before we finish!
@@ -97,7 +105,7 @@ pipeline {
             }
     
 
-   success {
+  /* success {
         mail(from: "cvsuccess2@gmail.com",
                 to: "cvsuccess2@gmail.com",
                 subject: "That build passed.",
@@ -109,7 +117,7 @@ pipeline {
                 to: "cvsuccess2@gmail.com",
                 subject: "That build failed!",
                 body: "Nothing to see here")
-    }
+    }*/
        }
       
     // The options directive is for configuration that applies to the whole job.
